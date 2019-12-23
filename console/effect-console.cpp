@@ -3,20 +3,26 @@
 
 // Tested with package v4.1.0
 
-FOREIGN_BEGIN( Effect_Console )
+using namespace purescript;
 
-exports["log"] = [](const boxed& s) -> boxed {
+extern "C" auto PS_Effect_Console_log() -> boxed {
+  static const boxed _ = [](const boxed& s) -> boxed {
     return [=]() -> boxed {
-        std::cout << unbox<string>(s) << std::endl;
-        return boxed();
+      std::cout << unbox<string>(s) << std::endl;
+      return boxed();
     };
+  };
+  return _;
 };
 
-exports["warn"] = [](const boxed& s) -> boxed {
+extern "C" auto PS_Effect_Console_warn() -> boxed {
+  static const boxed _ = [](const boxed& s) -> boxed {
     return [=]() -> boxed {
-        std::cout << unbox<string>(s) << std::endl;
-        return boxed();
+      std::cout << unbox<string>(s) << std::endl;
+      return boxed();
     };
+  };
+  return _;
 };
 
-FOREIGN_END
+

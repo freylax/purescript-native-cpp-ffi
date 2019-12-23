@@ -20,12 +20,27 @@ namespace Data_Ord {
     }
 }
 
-FOREIGN_BEGIN( Data_Ord )
+using namespace purescript;
 
-exports["ordBooleanImpl"] = ordImpl<bool>;
-exports["ordIntImpl"]     = ordImpl<int>;
-exports["ordNumberImpl"]  = ordImpl<double>;
-exports["ordStringImpl"]  = ordImpl<string>;
-exports["ordCharImpl"]    = ordImpl<string>;
+extern "C" auto PS_Data_Ord_ordBooleanImpl() -> boxed {
+  static const boxed _ = Data_Ord::ordImpl<bool>;
+  return _;
+};
+extern "C" auto PS_Data_Ord_ordIntImpl() -> boxed {
+  static const boxed _ = Data_Ord::ordImpl<int>;
+  return _;
+};
+extern "C" auto PS_Data_Ord_ordNumberImpl() -> boxed {
+  static const boxed _ = Data_Ord::ordImpl<double>;
+  return _;
+};
+extern "C" auto PS_Data_Ord_ordStringImpl() -> boxed {
+  static const boxed _ = Data_Ord::ordImpl<string>;
+  return _;
+};
+extern "C" auto PS_Data_Ord_ordCharImpl() -> boxed {
+  static const boxed _ = Data_Ord::ordImpl<string>;
+  return _;
+};
 
-FOREIGN_END
+

@@ -2,23 +2,29 @@
 
 // Tested with package v4.0.0
 
-FOREIGN_BEGIN( Data_Ring )
+using namespace purescript;
 
-exports["intSub"] = [](const boxed& x_) -> boxed {
+extern "C" auto PS_Data_Ring_intSub() -> boxed {
+  static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<int>(x_);
     return [=](const boxed& y_) -> boxed {
-        const auto y = unbox<int>(y_);
-        return x - y;
+      const auto y = unbox<int>(y_);
+      return x - y;
     };
+  };
+  return _;
 };
 
-exports["numSub"] = [](const boxed& x_) -> boxed {
+extern "C" auto PS_Data_Ring_numSub() -> boxed {
+  static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<double>(x_);
     return [=](const boxed& y_) -> boxed {
-        const auto y = unbox<double>(y_);
-        return x - y;
+      const auto y = unbox<double>(y_);
+      return x - y;
     };
+  };
+  return _;
 };
 
 
-FOREIGN_END
+

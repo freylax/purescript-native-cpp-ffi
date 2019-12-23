@@ -52,25 +52,28 @@ static auto go(const long bot,
   }
 }
 
-FOREIGN_BEGIN( Data_Traversable )
+using namespace purescript;
 
-exports["traverseArrayImpl"] = [](const boxed& apply) -> boxed {
+extern "C" auto PS_Data_Traversable_traverseArrayImpl() -> boxed {
+  static const boxed _ = [](const boxed& apply) -> boxed {
     return [=](const boxed& map) -> boxed {
-        return [=](const boxed& pure) -> boxed {
-            return [=](const boxed& f) -> boxed {
-                return [=](const boxed& array_) -> boxed {
-                  const auto& array = unbox<array_t>(array_);
-                  return go(0,
-                            array.size(),
-                            apply,
-                            map,
-                            pure,
-                            f,
-                            array);
-                };
-            };
-        };
+      return [=](const boxed& pure) -> boxed {
+	return [=](const boxed& f) -> boxed {
+	  return [=](const boxed& array_) -> boxed {
+	    const auto& array = unbox<array_t>(array_);
+	    return go(0,
+		      array.size(),
+		      apply,
+		      map,
+		      pure,
+		      f,
+		      array);
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-FOREIGN_END
+

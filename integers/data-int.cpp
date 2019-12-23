@@ -5,20 +5,26 @@
 
 // Tested with package v4.0.0
 
-FOREIGN_BEGIN( Data_Int )
+using namespace purescript;
 
-exports["toNumber"] = [](const boxed& n) -> boxed {
+extern "C" auto PS_Data_Int_toNumber() -> boxed {
+  static const boxed _ = [](const boxed& n) -> boxed {
     return static_cast<double>(unbox<int>(n));
+  };
+  return _;
 };
 
-exports["pow"] = [](const boxed& n_) -> boxed {
+extern "C" auto PS_Data_Int_pow() -> boxed {
+  static const boxed _ = [](const boxed& n_) -> boxed {
     const auto n = unbox<int>(n_);
     return [=](const boxed& p) -> boxed {
-        const auto r = std::lround(std::pow(n, unbox<int>(p)));
-        assert(r >= std::numeric_limits<int>::min() &&
-               r <= std::numeric_limits<int>::max());
-        return static_cast<int>(r);
+      const auto r = std::lround(std::pow(n, unbox<int>(p)));
+      assert(r >= std::numeric_limits<int>::min() &&
+	     r <= std::numeric_limits<int>::max());
+      return static_cast<int>(r);
     };
+  };
+  return _;
 };
 
-FOREIGN_END
+

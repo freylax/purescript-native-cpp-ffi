@@ -2,24 +2,33 @@
 
 // Tested with package v4.0.0
 
-FOREIGN_BEGIN( Data_HeytingAlgebra )
+using namespace purescript;
 
-exports["boolConj"] = [](const boxed& b1_) -> boxed {
+extern "C" auto PS_Data_HeytingAlgebra_boolConj() -> boxed {
+  static const boxed _ = [](const boxed& b1_) -> boxed {
     const auto b1 = unbox<bool>(b1_);
     return [=](const boxed& b2) -> boxed {
-        return b1 && unbox<bool>(b2);
+      return b1 && unbox<bool>(b2);
     };
+  };
+  return _;
 };
 
-exports["boolDisj"] = [](const boxed& b1_) -> boxed {
+extern "C" auto PS_Data_HeytingAlgebra_boolDisj() -> boxed {
+  static const boxed _ = [](const boxed& b1_) -> boxed {
     const auto b1 = unbox<bool>(b1_);
     return [=](const boxed& b2) -> boxed {
-        return b1 || unbox<bool>(b2);
+      return b1 || unbox<bool>(b2);
     };
+  };
+  return _;
 };
 
-exports["boolNot"] = [](const boxed& b) -> boxed {
+extern "C" auto PS_Data_HeytingAlgebra_boolNot() -> boxed {
+  static const boxed _ = [](const boxed& b) -> boxed {
     return !unbox<bool>(b);
+  };
+  return _;
 };
 
-FOREIGN_END
+

@@ -3,127 +3,127 @@
 
 // Tested with package v2.0.0
 
-FOREIGN_BEGIN( Effect_Uncurried )
+using namespace purescript;
 
-exports["mkEffectFn1"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn1() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&)>>(
-        [=](const boxed& a) -> boxed {
-            return fn(a)();
-        }
-    );
+						   [=](const boxed& a) -> boxed {
+						     return fn(a)();
+						   }
+						   );
+  };
+  return _;
 };
 
-exports["mkEffectFn2"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn2() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&, const boxed&)>>(
-        [=](const boxed& a, const boxed& b) -> boxed {
-            return fn(a)(b)();
-        }
-    );
+								 [=](const boxed& a, const boxed& b) -> boxed {
+								   return fn(a)(b)();
+								 }
+								 );
+  };
+  return _;
 };
 
-exports["mkEffectFn3"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn3() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
                                    const boxed&)>>(
-        [=](const boxed& a,
-            const boxed& b,
-            const boxed& c) -> boxed {
-            return fn(a)(b)(c)();
-        }
-    );
+						   [=](const boxed& a,
+						       const boxed& b,
+						       const boxed& c) -> boxed {
+						     return fn(a)(b)(c)();
+						   }
+						   );
+  };
+  return _;
 };
 
-exports["mkEffectFn4"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn4() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
                                    const boxed&,
                                    const boxed&)>>(
-        [=](const boxed& a,
-            const boxed& b,
-            const boxed& c,
-            const boxed& d) -> boxed {
-            return fn(a)(b)(c)(d)();
-        }
-    );
+						   [=](const boxed& a,
+						       const boxed& b,
+						       const boxed& c,
+						       const boxed& d) -> boxed {
+						     return fn(a)(b)(c)(d)();
+						   }
+						   );
+  };
+  return _;
 };
 
-exports["mkEffectFn5"] = [](const boxed& fn) -> boxed {
-    return box<std::function<boxed(const boxed&,
-                                   const boxed&,
-                                   const boxed&,
-                                   const boxed&,
-                                   const boxed&)>>(
-        [=](const boxed& a,
-            const boxed& b,
-            const boxed& c,
-            const boxed& d,
-            const boxed& e) -> boxed {
-            return fn(a)(b)(c)(d)(e)();
-        }
-    );
-};
-
-exports["mkEffectFn6"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn5() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
                                    const boxed&,
                                    const boxed&,
-                                   const boxed&,
                                    const boxed&)>>(
-        [=](const boxed& a,
-            const boxed& b,
-            const boxed& c,
-            const boxed& d,
-            const boxed& e,
-            const boxed& f) -> boxed {
-            return fn(a)(b)(c)(d)(e)(f)();
-        }
-    );
+						   [=](const boxed& a,
+						       const boxed& b,
+						       const boxed& c,
+						       const boxed& d,
+						       const boxed& e) -> boxed {
+						     return fn(a)(b)(c)(d)(e)();
+						   }
+						   );
+  };
+  return _;
 };
 
-exports["mkEffectFn7"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn6() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
                                    const boxed&,
                                    const boxed&,
                                    const boxed&,
-                                   const boxed&,
                                    const boxed&)>>(
-        [=](const boxed& a,
-            const boxed& b,
-            const boxed& c,
-            const boxed& d,
-            const boxed& e,
-            const boxed& f,
-            const boxed& g) -> boxed {
-            return fn(a)(b)(c)(d)(e)(f)(g)();
-        }
-    );
+						   [=](const boxed& a,
+						       const boxed& b,
+						       const boxed& c,
+						       const boxed& d,
+						       const boxed& e,
+						       const boxed& f) -> boxed {
+						     return fn(a)(b)(c)(d)(e)(f)();
+						   }
+						   );
+  };
+  return _;
 };
 
-exports["mkEffectFn8"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn7() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
                                    const boxed&,
                                    const boxed&,
                                    const boxed&,
                                    const boxed&,
-                                   const boxed&,
                                    const boxed&)>>(
-        [=](const boxed& a,
-            const boxed& b,
-            const boxed& c,
-            const boxed& d,
-            const boxed& e,
-            const boxed& f,
-            const boxed& g,
-            const boxed& h) -> boxed {
-            return fn(a)(b)(c)(d)(e)(f)(g)(h)();
-        }
-    );
+						   [=](const boxed& a,
+						       const boxed& b,
+						       const boxed& c,
+						       const boxed& d,
+						       const boxed& e,
+						       const boxed& f,
+						       const boxed& g) -> boxed {
+						     return fn(a)(b)(c)(d)(e)(f)(g)();
+						   }
+						   );
+  };
+  return _;
 };
 
-exports["mkEffectFn9"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn8() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
                                    const boxed&,
@@ -131,23 +131,24 @@ exports["mkEffectFn9"] = [](const boxed& fn) -> boxed {
                                    const boxed&,
                                    const boxed&,
                                    const boxed&,
-                                   const boxed&,
                                    const boxed&)>>(
-        [=](const boxed& a,
-            const boxed& b,
-            const boxed& c,
-            const boxed& d,
-            const boxed& e,
-            const boxed& f,
-            const boxed& g,
-            const boxed& h,
-            const boxed& i) -> boxed {
-            return fn(a)(b)(c)(d)(e)(f)(g)(h)(i)();
-        }
-    );
+						   [=](const boxed& a,
+						       const boxed& b,
+						       const boxed& c,
+						       const boxed& d,
+						       const boxed& e,
+						       const boxed& f,
+						       const boxed& g,
+						       const boxed& h) -> boxed {
+						     return fn(a)(b)(c)(d)(e)(f)(g)(h)();
+						   }
+						   );
+  };
+  return _;
 };
 
-exports["mkEffectFn10"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn9() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
                                    const boxed&,
@@ -156,238 +157,297 @@ exports["mkEffectFn10"] = [](const boxed& fn) -> boxed {
                                    const boxed&,
                                    const boxed&,
                                    const boxed&,
+                                   const boxed&)>>(
+						   [=](const boxed& a,
+						       const boxed& b,
+						       const boxed& c,
+						       const boxed& d,
+						       const boxed& e,
+						       const boxed& f,
+						       const boxed& g,
+						       const boxed& h,
+						       const boxed& i) -> boxed {
+						     return fn(a)(b)(c)(d)(e)(f)(g)(h)(i)();
+						   }
+						   );
+  };
+  return _;
+};
+
+extern "C" auto PS_Effect_Uncurried_mkEffectFn10() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
+    return box<std::function<boxed(const boxed&,
+                                   const boxed&,
+                                   const boxed&,
+                                   const boxed&,
+                                   const boxed&,
+                                   const boxed&,
+                                   const boxed&,
+                                   const boxed&,
                                    const boxed&,
                                    const boxed&)>>(
-        [=](const boxed& a,
-            const boxed& b,
-            const boxed& c,
-            const boxed& d,
-            const boxed& e,
-            const boxed& f,
-            const boxed& g,
-            const boxed& h,
-            const boxed& i,
-            const boxed& j) -> boxed {
-            return fn(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)();
-        }
-    );
+						   [=](const boxed& a,
+						       const boxed& b,
+						       const boxed& c,
+						       const boxed& d,
+						       const boxed& e,
+						       const boxed& f,
+						       const boxed& g,
+						       const boxed& h,
+						       const boxed& i,
+						       const boxed& j) -> boxed {
+						     return fn(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)();
+						   }
+						   );
+  };
+  return _;
 };
 
 // runEffectFn
 
-exports["runEffectFn1"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn1() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=]() -> boxed {
-            return unbox<std::function<boxed(const boxed&)>>(fn)(a);
-        };
+      return [=]() -> boxed {
+	return unbox<std::function<boxed(const boxed&)>>(fn)(a);
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn2"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn2() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=]() -> boxed {
-                return unbox<std::function<boxed(const boxed&, const boxed&)>>(fn)(a, b);
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=]() -> boxed {
+	  return unbox<std::function<boxed(const boxed&, const boxed&)>>(fn)(a, b);
+	};
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn3"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn3() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=](const boxed& c) -> boxed {
-                return [=]() -> boxed {
-                    return unbox<std::function<boxed(const boxed&,
-                                                     const boxed&,
-                                                     const boxed&)>>(fn)(a, b, c);
-                };
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=](const boxed& c) -> boxed {
+	  return [=]() -> boxed {
+	    return unbox<std::function<boxed(const boxed&,
+					     const boxed&,
+					     const boxed&)>>(fn)(a, b, c);
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn4"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn4() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=](const boxed& c) -> boxed {
-                return [=](const boxed& d) -> boxed {
-                    return [=]() -> boxed {
-                        return unbox<std::function<boxed(const boxed&,
-                                                         const boxed&,
-                                                         const boxed&,
-                                                         const boxed&)>>(fn)(a, b, c, d);
-                    };
-                };
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=](const boxed& c) -> boxed {
+	  return [=](const boxed& d) -> boxed {
+	    return [=]() -> boxed {
+	      return unbox<std::function<boxed(const boxed&,
+					       const boxed&,
+					       const boxed&,
+					       const boxed&)>>(fn)(a, b, c, d);
+	    };
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn5"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn5() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=](const boxed& c) -> boxed {
-                return [=](const boxed& d) -> boxed {
-                    return [=](const boxed& e) -> boxed {
-                        return [=]() -> boxed {
-                            return unbox<std::function<boxed(const boxed&,
-                                                             const boxed&,
-                                                             const boxed&,
-                                                             const boxed&,
-                                                             const boxed&)>>(fn)(a, b, c, d, e);
-                        };
-                    };
-                };
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=](const boxed& c) -> boxed {
+	  return [=](const boxed& d) -> boxed {
+	    return [=](const boxed& e) -> boxed {
+	      return [=]() -> boxed {
+		return unbox<std::function<boxed(const boxed&,
+						 const boxed&,
+						 const boxed&,
+						 const boxed&,
+						 const boxed&)>>(fn)(a, b, c, d, e);
+	      };
+	    };
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn6"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn6() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=](const boxed& c) -> boxed {
-                return [=](const boxed& d) -> boxed {
-                    return [=](const boxed& e) -> boxed {
-                        return [=](const boxed& f) -> boxed {
-                            return [=]() -> boxed {
-                                return fn(a)(b)(c)(d)(e)(f);
-                                return unbox<std::function<boxed(const boxed&,
-                                                                 const boxed&,
-                                                                 const boxed&,
-                                                                 const boxed&,
-                                                                 const boxed&,
-                                                                 const boxed&)>>(fn)(a, b, c, d, e, f);
-                            };
-                        };
-                    };
-                };
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=](const boxed& c) -> boxed {
+	  return [=](const boxed& d) -> boxed {
+	    return [=](const boxed& e) -> boxed {
+	      return [=](const boxed& f) -> boxed {
+		return [=]() -> boxed {
+		  return fn(a)(b)(c)(d)(e)(f);
+		  return unbox<std::function<boxed(const boxed&,
+						   const boxed&,
+						   const boxed&,
+						   const boxed&,
+						   const boxed&,
+						   const boxed&)>>(fn)(a, b, c, d, e, f);
+		};
+	      };
+	    };
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn7"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn7() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=](const boxed& c) -> boxed {
-                return [=](const boxed& d) -> boxed {
-                    return [=](const boxed& e) -> boxed {
-                        return [=](const boxed& f) -> boxed {
-                            return [=](const boxed& g) -> boxed {
-                                return [=]() -> boxed {
-                                    return unbox<std::function<boxed(const boxed&,
-                                                                     const boxed&,
-                                                                     const boxed&,
-                                                                     const boxed&,
-                                                                     const boxed&,
-                                                                     const boxed&,
-                                                                     const boxed&)>>(fn)(a, b, c, d, e, f, g);
-                                };
-                            };
-                        };
-                    };
-                };
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=](const boxed& c) -> boxed {
+	  return [=](const boxed& d) -> boxed {
+	    return [=](const boxed& e) -> boxed {
+	      return [=](const boxed& f) -> boxed {
+		return [=](const boxed& g) -> boxed {
+		  return [=]() -> boxed {
+		    return unbox<std::function<boxed(const boxed&,
+						     const boxed&,
+						     const boxed&,
+						     const boxed&,
+						     const boxed&,
+						     const boxed&,
+						     const boxed&)>>(fn)(a, b, c, d, e, f, g);
+		  };
+		};
+	      };
+	    };
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn8"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn8() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=](const boxed& c) -> boxed {
-                return [=](const boxed& d) -> boxed {
-                    return [=](const boxed& e) -> boxed {
-                        return [=](const boxed& f) -> boxed {
-                            return [=](const boxed& g) -> boxed {
-                                return [=](const boxed& h) -> boxed {
-                                    return [=]() -> boxed {
-                                        return unbox<std::function<boxed(const boxed&,
-                                                                         const boxed&,
-                                                                         const boxed&,
-                                                                         const boxed&,
-                                                                         const boxed&,
-                                                                         const boxed&,
-                                                                         const boxed&,
-                                                                         const boxed&)>>(fn)(a, b, c, d, e, f, g, h);
-                                    };
-                                };
-                            };
-                        };
-                    };
-                };
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=](const boxed& c) -> boxed {
+	  return [=](const boxed& d) -> boxed {
+	    return [=](const boxed& e) -> boxed {
+	      return [=](const boxed& f) -> boxed {
+		return [=](const boxed& g) -> boxed {
+		  return [=](const boxed& h) -> boxed {
+		    return [=]() -> boxed {
+		      return unbox<std::function<boxed(const boxed&,
+						       const boxed&,
+						       const boxed&,
+						       const boxed&,
+						       const boxed&,
+						       const boxed&,
+						       const boxed&,
+						       const boxed&)>>(fn)(a, b, c, d, e, f, g, h);
+		    };
+		  };
+		};
+	      };
+	    };
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn9"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn9() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=](const boxed& c) -> boxed {
-                return [=](const boxed& d) -> boxed {
-                    return [=](const boxed& e) -> boxed {
-                        return [=](const boxed& f) -> boxed {
-                            return [=](const boxed& g) -> boxed {
-                                return [=](const boxed& h) -> boxed {
-                                    return [=](const boxed& i) -> boxed {
-                                        return [=]() -> boxed {
-                                            return unbox<std::function<boxed(const boxed&,
-                                                                             const boxed&,
-                                                                             const boxed&,
-                                                                             const boxed&,
-                                                                             const boxed&,
-                                                                             const boxed&,
-                                                                             const boxed&,
-                                                                             const boxed&,
-                                                                             const boxed&)>>(fn)(a, b, c, d, e, f, g, h, i);
-                                        };
-                                    };
-                                };
-                            };
-                        };
-                    };
-                };
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=](const boxed& c) -> boxed {
+	  return [=](const boxed& d) -> boxed {
+	    return [=](const boxed& e) -> boxed {
+	      return [=](const boxed& f) -> boxed {
+		return [=](const boxed& g) -> boxed {
+		  return [=](const boxed& h) -> boxed {
+		    return [=](const boxed& i) -> boxed {
+		      return [=]() -> boxed {
+			return unbox<std::function<boxed(const boxed&,
+							 const boxed&,
+							 const boxed&,
+							 const boxed&,
+							 const boxed&,
+							 const boxed&,
+							 const boxed&,
+							 const boxed&,
+							 const boxed&)>>(fn)(a, b, c, d, e, f, g, h, i);
+		      };
+		    };
+		  };
+		};
+	      };
+	    };
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-exports["runEffectFn10"] = [](const boxed& fn) -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn10() -> boxed {
+  static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
-        return [=](const boxed& b) -> boxed {
-            return [=](const boxed& c) -> boxed {
-                return [=](const boxed& d) -> boxed {
-                    return [=](const boxed& e) -> boxed {
-                        return [=](const boxed& f) -> boxed {
-                            return [=](const boxed& g) -> boxed {
-                                return [=](const boxed& h) -> boxed {
-                                    return [=](const boxed& i) -> boxed {
-                                        return [=](const boxed& j) -> boxed {
-                                            return [=]() -> boxed {
-                                                return unbox<std::function<boxed(const boxed&,
-                                                                                 const boxed&,
-                                                                                 const boxed&,
-                                                                                 const boxed&,
-                                                                                 const boxed&,
-                                                                                 const boxed&,
-                                                                                 const boxed&,
-                                                                                 const boxed&,
-                                                                                 const boxed&,
-                                                                                 const boxed&)>>(fn)(a, b, c, d, e, f, g, h, i, j);
-                                            };
-                                        };
-                                    };
-                                };
-                            };
-                        };
-                    };
-                };
-            };
-        };
+      return [=](const boxed& b) -> boxed {
+	return [=](const boxed& c) -> boxed {
+	  return [=](const boxed& d) -> boxed {
+	    return [=](const boxed& e) -> boxed {
+	      return [=](const boxed& f) -> boxed {
+		return [=](const boxed& g) -> boxed {
+		  return [=](const boxed& h) -> boxed {
+		    return [=](const boxed& i) -> boxed {
+		      return [=](const boxed& j) -> boxed {
+			return [=]() -> boxed {
+			  return unbox<std::function<boxed(const boxed&,
+							   const boxed&,
+							   const boxed&,
+							   const boxed&,
+							   const boxed&,
+							   const boxed&,
+							   const boxed&,
+							   const boxed&,
+							   const boxed&,
+							   const boxed&)>>(fn)(a, b, c, d, e, f, g, h, i, j);
+			};
+		      };
+		    };
+		  };
+		};
+	      };
+	    };
+	  };
+	};
+      };
     };
+  };
+  return _;
 };
 
-FOREIGN_END
+

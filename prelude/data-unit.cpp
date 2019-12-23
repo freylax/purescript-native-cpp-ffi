@@ -2,8 +2,11 @@
 
 // Tested with package v4.0.0
 
-FOREIGN_BEGIN( Data_Unit )
+using namespace purescript;
 
-exports["unit"] = boxed();
+extern "C" auto PS_Data_Unit_unit() -> boxed {
+  static const boxed _ = boxed();
+  return _;
+};
 
-FOREIGN_END
+

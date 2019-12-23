@@ -2,18 +2,21 @@
 
 // Tested with package v4.0.0
 
-FOREIGN_BEGIN( Data_FunctorWithIndex )
+using namespace purescript;
 
-exports["mapWithIndexArray"] = [](const boxed& f) -> boxed {
+extern "C" auto PS_Data_FunctorWithIndex_mapWithIndexArray() -> boxed {
+  static const boxed _ = [](const boxed& f) -> boxed {
     return [=](const boxed& xs_) -> boxed {
-        const auto& xs = unbox<array_t>(xs_);
-        array_t result;
-        int i = 0;
-        for (auto it = xs.cbegin(), end = xs.cend(); it != end ; it++, i++) {
-            result.push_back(f(i)(*it));
-        }
-        return result;
+      const auto& xs = unbox<array_t>(xs_);
+      array_t result;
+      int i = 0;
+      for (auto it = xs.cbegin(), end = xs.cend(); it != end ; it++, i++) {
+	result.push_back(f(i)(*it));
+      }
+      return result;
     };
+  };
+  return _;
 };
 
-FOREIGN_END
+

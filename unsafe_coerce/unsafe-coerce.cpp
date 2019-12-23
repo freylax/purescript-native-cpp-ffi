@@ -2,10 +2,13 @@
 
 // Tested with package v4.0.0
 
-FOREIGN_BEGIN( Unsafe_Coerce )
+using namespace purescript;
 
-exports["unsafeCoerce"] = [](const boxed& x) -> boxed {
+extern "C" auto PS_Unsafe_Coerce_unsafeCoerce() -> boxed {
+  static const boxed _ = [](const boxed& x) -> boxed {
     return x;
+  };
+  return _;
 };
 
-FOREIGN_END
+

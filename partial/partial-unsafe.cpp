@@ -2,10 +2,13 @@
 
 // Tested with package v2.0.0
 
-FOREIGN_BEGIN( Partial_Unsafe )
+using namespace purescript;
 
-exports["unsafePartial"] = [](const boxed& f) -> boxed {
+extern "C" auto PS_Partial_Unsafe_unsafePartial() -> boxed {
+  static const boxed _ = [](const boxed& f) -> boxed {
     return f(boxed());
+  };
+  return _;
 };
 
-FOREIGN_END
+

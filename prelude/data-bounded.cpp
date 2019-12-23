@@ -3,15 +3,33 @@
 
 // Tested with package v4.0.0
 
-FOREIGN_BEGIN( Data_Bounded )
+using namespace purescript;
 
-exports["topInt"] = std::numeric_limits<int>::max();
-exports["bottomInt"] = std::numeric_limits<int>::min();
+extern "C" auto PS_Data_Bounded_topInt() -> boxed {
+  static const boxed _ = std::numeric_limits<int>::max();
+  return _;
+};
+extern "C" auto PS_Data_Bounded_bottomInt() -> boxed {
+  static const boxed _ = std::numeric_limits<int>::min();
+  return _;
+};
 
-exports["topChar"] = u8"\U0010FFFF"; // unicode limit
-exports["bottomChar"] = u8"\0";
+extern "C" auto PS_Data_Bounded_topChar() -> boxed {
+  static const boxed _ = u8"\U0010FFFF"; // unicode limit
+  return _;
+};
+extern "C" auto PS_Data_Bounded_bottomChar() -> boxed {
+  static const boxed _ = u8"\0";
+  return _;
+};
 
-exports["topNumber"] = std::numeric_limits<double>::max();
-exports["bottomNumber"] = std::numeric_limits<double>::min();
+extern "C" auto PS_Data_Bounded_topNumber() -> boxed {
+  static const boxed _ = std::numeric_limits<double>::max();
+  return _;
+};
+extern "C" auto PS_Data_Bounded_bottomNumber() -> boxed {
+  static const boxed _ = std::numeric_limits<double>::min();
+  return _;
+};
 
-FOREIGN_END
+

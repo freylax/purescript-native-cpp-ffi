@@ -3,17 +3,23 @@
 
 // Tested with package v2.1.1
 
-FOREIGN_BEGIN( Math )
+using namespace purescript;
 
-exports["abs"] = [](const boxed& x) -> boxed {
+extern "C" auto PS_Math_abs() -> boxed {
+  static const boxed _ = [](const boxed& x) -> boxed {
     return std::fabs(unbox<double>(x));
+  };
+  return _;
 };
 
-exports["pow"] = [](const boxed& n_) -> boxed {
+extern "C" auto PS_Math_pow() -> boxed {
+  static const boxed _ = [](const boxed& n_) -> boxed {
     const auto n = unbox<double>(n_);
     return [=](const boxed& p) -> boxed {
-        return std::pow(n, unbox<double>(p));
+      return std::pow(n, unbox<double>(p));
     };
+  };
+  return _;
 };
 
-FOREIGN_END
+
