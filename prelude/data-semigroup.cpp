@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Semigroup_concatString() -> boxed {
+extern "C" auto PS_Data_Semigroup_concatString() -> const boxed& {
   static const boxed _ = [](const boxed& s1) -> boxed {
     return [=](const boxed& s2) -> boxed {
       return unbox<string>(s1) + unbox<string>(s2);
@@ -13,7 +13,7 @@ extern "C" auto PS_Data_Semigroup_concatString() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Semigroup_concatArray() -> boxed {
+extern "C" auto PS_Data_Semigroup_concatArray() -> const boxed& {
   static const boxed _ = [](const boxed& xs) -> boxed {
     return [=](const boxed& ys_) -> boxed {
       array_t result(unbox<array_t>(xs)); // makes a copy

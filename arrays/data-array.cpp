@@ -7,7 +7,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Array_range() -> boxed {
+extern "C" auto PS_Data_Array_range() -> const boxed& {
   static const boxed _ = [](const boxed& start_) -> boxed {
     const auto start = unbox<int>(start_);
     return [=](const boxed& end_) -> boxed {
@@ -24,7 +24,7 @@ extern "C" auto PS_Data_Array_range() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Array_replicate() -> boxed {
+extern "C" auto PS_Data_Array_replicate() -> const boxed& {
   static const boxed _ = [](const boxed& count_) -> boxed {
     const auto count = unbox<int>(count_);
     return [=](const boxed& value) -> boxed {
@@ -34,7 +34,7 @@ extern "C" auto PS_Data_Array_replicate() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Array_length() -> boxed {
+extern "C" auto PS_Data_Array_length() -> const boxed& {
   static const boxed _ = [](const boxed& xs) -> boxed {
     const long long len = unbox<array_t>(xs).size();
     assert(len <= std::numeric_limits<int>::max());
@@ -43,7 +43,7 @@ extern "C" auto PS_Data_Array_length() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Array_cons() -> boxed {
+extern "C" auto PS_Data_Array_cons() -> const boxed& {
   static const boxed _ = [](const boxed& e) -> boxed {
     return [=](const boxed& l_) -> boxed {
       const auto& l = unbox<array_t>(l_);
@@ -57,7 +57,7 @@ extern "C" auto PS_Data_Array_cons() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Array_snoc() -> boxed {
+extern "C" auto PS_Data_Array_snoc() -> const boxed& {
   static const boxed _ = [](const boxed& l_) -> boxed {
     return [=](const boxed& e) -> boxed {
       const auto& l = unbox<array_t>(l_);
@@ -71,7 +71,7 @@ extern "C" auto PS_Data_Array_snoc() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Array_slice() -> boxed {
+extern "C" auto PS_Data_Array_slice() -> const boxed& {
   static const boxed _ = [](const boxed& start_) -> boxed {
     const auto start = unbox<int>(start_);
     return [=](const boxed& end_) -> boxed {
@@ -90,7 +90,7 @@ extern "C" auto PS_Data_Array_slice() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Array_indexImpl() -> boxed {
+extern "C" auto PS_Data_Array_indexImpl() -> const boxed& {
   static const boxed _ = [](const boxed& just) -> boxed {
     return [=](const boxed& nothing) -> boxed {
       return [=](const boxed& xs_) -> boxed {
@@ -105,7 +105,7 @@ extern "C" auto PS_Data_Array_indexImpl() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Array_unsafeIndexImpl() -> boxed {
+extern "C" auto PS_Data_Array_unsafeIndexImpl() -> const boxed& {
   static const boxed _ = [](const boxed& xs) -> boxed {
     return [=](const boxed& n) -> boxed {
       return unbox<array_t>(xs)[unbox<int>(n)];

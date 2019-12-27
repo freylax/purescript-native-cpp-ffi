@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Unit_unit() -> boxed {
+extern "C" auto PS_Data_Unit_unit() -> const boxed& {
   static const boxed _ = boxed();
   return _;
 };

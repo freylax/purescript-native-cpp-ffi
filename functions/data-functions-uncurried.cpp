@@ -5,7 +5,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn0() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn0() -> const boxed& {
   static const boxed _ = [](const boxed& f) -> boxed {
     return [=]() -> boxed {
       return f(boxed());
@@ -14,7 +14,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn0() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn2() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn2() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&, const boxed&)>>(
 								 [=](const boxed& a, const boxed& b) -> boxed {
@@ -25,7 +25,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn2() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn3() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn3() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -40,7 +40,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn3() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn4() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn4() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -57,7 +57,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn4() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn5() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn5() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -76,7 +76,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn5() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn6() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn6() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -97,7 +97,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn6() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn7() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn7() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -120,7 +120,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn7() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn8() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn8() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -145,7 +145,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn8() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn9() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn9() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -172,7 +172,7 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn9() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_mkFn10() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_mkFn10() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -203,14 +203,14 @@ extern "C" auto PS_Data_Function_Uncurried_mkFn10() -> boxed {
 
 //--------------------------------- runFn -----------------------------------//
 
-extern "C" auto PS_Data_Function_Uncurried_runFn0() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn0() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return fn();
   };
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn2() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn2() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -221,7 +221,7 @@ extern "C" auto PS_Data_Function_Uncurried_runFn2() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn3() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn3() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -236,7 +236,7 @@ extern "C" auto PS_Data_Function_Uncurried_runFn3() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn4() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn4() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -254,7 +254,7 @@ extern "C" auto PS_Data_Function_Uncurried_runFn4() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn5() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn5() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -275,7 +275,7 @@ extern "C" auto PS_Data_Function_Uncurried_runFn5() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn6() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn6() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -299,7 +299,7 @@ extern "C" auto PS_Data_Function_Uncurried_runFn6() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn7() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn7() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -326,7 +326,7 @@ extern "C" auto PS_Data_Function_Uncurried_runFn7() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn8() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn8() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -356,7 +356,7 @@ extern "C" auto PS_Data_Function_Uncurried_runFn8() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn9() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn9() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -389,7 +389,7 @@ extern "C" auto PS_Data_Function_Uncurried_runFn9() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Function_Uncurried_runFn10() -> boxed {
+extern "C" auto PS_Data_Function_Uncurried_runFn10() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {

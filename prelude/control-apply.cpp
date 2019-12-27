@@ -5,7 +5,7 @@
 using namespace purescript;
 
 
-extern "C" auto PS_Control_Apply_arrayApply() -> boxed {
+extern "C" auto PS_Control_Apply_arrayApply() -> const boxed& {
   static const boxed _ = [](const boxed& fs_) -> boxed {
     return [=](const boxed& xs_) -> boxed {
       const auto& fs = unbox<array_t>(fs_);

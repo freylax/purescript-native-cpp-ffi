@@ -5,7 +5,7 @@
 using namespace purescript;
 
 
-extern "C" auto PS_Data_Functor_arrayMap() -> boxed {
+extern "C" auto PS_Data_Functor_arrayMap() -> const boxed& {
   static const boxed _ = [](const boxed& f) -> boxed {
     return [=](const boxed& arr_) -> boxed {
       const auto& arr = unbox<array_t>(arr_);

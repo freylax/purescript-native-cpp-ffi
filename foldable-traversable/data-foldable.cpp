@@ -5,7 +5,7 @@
 using namespace purescript;
 
 
-extern "C" auto PS_Data_Foldable_foldrArray() -> boxed {
+extern "C" auto PS_Data_Foldable_foldrArray() -> const boxed& {
   static const boxed _ = [](const boxed& f) -> boxed {
     return [=](const boxed& init) -> boxed {
       return [=](const boxed& xs_) -> boxed {
@@ -21,7 +21,7 @@ extern "C" auto PS_Data_Foldable_foldrArray() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Foldable_foldlArray() -> boxed {
+extern "C" auto PS_Data_Foldable_foldlArray() -> const boxed& {
   static const boxed _ = [](const boxed& f) -> boxed {
     return [=](const boxed& init) -> boxed {
       return [=](const boxed& xs_) -> boxed {

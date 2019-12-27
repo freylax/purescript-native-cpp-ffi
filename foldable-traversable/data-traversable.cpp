@@ -54,7 +54,7 @@ static auto go(const long bot,
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Traversable_traverseArrayImpl() -> boxed {
+extern "C" auto PS_Data_Traversable_traverseArrayImpl() -> const boxed& {
   static const boxed _ = [](const boxed& apply) -> boxed {
     return [=](const boxed& map) -> boxed {
       return [=](const boxed& pure) -> boxed {

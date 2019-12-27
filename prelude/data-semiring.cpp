@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Semiring_intAdd() -> boxed {
+extern "C" auto PS_Data_Semiring_intAdd() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<int>(x_);
     return [=](const boxed& y_) -> boxed {
@@ -15,7 +15,7 @@ extern "C" auto PS_Data_Semiring_intAdd() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Semiring_intMul() -> boxed {
+extern "C" auto PS_Data_Semiring_intMul() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<int>(x_);
     return [=](const boxed& y_) -> boxed {
@@ -26,7 +26,7 @@ extern "C" auto PS_Data_Semiring_intMul() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Semiring_numAdd() -> boxed {
+extern "C" auto PS_Data_Semiring_numAdd() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<double>(x_);
     return [=](const boxed& y_) -> boxed {
@@ -37,7 +37,7 @@ extern "C" auto PS_Data_Semiring_numAdd() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Semiring_numMul() -> boxed {
+extern "C" auto PS_Data_Semiring_numMul() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<double>(x_);
     return [=](const boxed& y_) -> boxed {

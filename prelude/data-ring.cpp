@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Ring_intSub() -> boxed {
+extern "C" auto PS_Data_Ring_intSub() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<int>(x_);
     return [=](const boxed& y_) -> boxed {
@@ -15,7 +15,7 @@ extern "C" auto PS_Data_Ring_intSub() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Ring_numSub() -> boxed {
+extern "C" auto PS_Data_Ring_numSub() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<double>(x_);
     return [=](const boxed& y_) -> boxed {

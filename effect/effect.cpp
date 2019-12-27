@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Effect_pureE() -> boxed {
+extern "C" auto PS_Effect_pureE() -> const boxed& {
   static const boxed _ = [](const boxed& a) -> boxed {
     return [=]() -> boxed {
       return a;
@@ -13,7 +13,7 @@ extern "C" auto PS_Effect_pureE() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_bindE() -> boxed {
+extern "C" auto PS_Effect_bindE() -> const boxed& {
   static const boxed _ = [](const boxed& a) -> boxed {
     return [=](const boxed& f) -> boxed {
       return [=]() -> boxed {
@@ -24,7 +24,7 @@ extern "C" auto PS_Effect_bindE() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_foreachE() -> boxed {
+extern "C" auto PS_Effect_foreachE() -> const boxed& {
   static const boxed _ = [](const boxed& as_) -> boxed {
     return [=](const boxed& f) -> boxed {
       return [=]() -> boxed {

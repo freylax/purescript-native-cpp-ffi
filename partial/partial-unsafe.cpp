@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Partial_Unsafe_unsafePartial() -> boxed {
+extern "C" auto PS_Partial_Unsafe_unsafePartial() -> const boxed& {
   static const boxed _ = [](const boxed& f) -> boxed {
     return f(boxed());
   };

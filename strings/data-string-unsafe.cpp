@@ -5,7 +5,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_String_Unsafe_charAt() -> boxed {
+extern "C" auto PS_Data_String_Unsafe_charAt() -> const boxed& {
   static const boxed _ = [](const boxed& i_) -> boxed {
     const auto i = unbox<int>(i_);
     return [=](const boxed& s_) -> boxed {
@@ -28,7 +28,7 @@ extern "C" auto PS_Data_String_Unsafe_charAt() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_String_Unsafe_char() -> boxed {
+extern "C" auto PS_Data_String_Unsafe_char() -> const boxed& {
   static const boxed _ = [](const boxed& s_) -> boxed {
     const auto& s = unbox<string>(s_);
     const auto len = utf8len(s.c_str());

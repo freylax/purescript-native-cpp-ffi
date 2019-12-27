@@ -6,7 +6,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Eq_eqBooleanImpl() -> boxed {
+extern "C" auto PS_Data_Eq_eqBooleanImpl() -> const boxed& {
   static const boxed _ = [](const boxed& b1_) -> boxed {
     const auto b1 = unbox<bool>(b1_);
     return [=](const boxed& b2) -> boxed {
@@ -16,7 +16,7 @@ extern "C" auto PS_Data_Eq_eqBooleanImpl() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Eq_eqIntImpl() -> boxed {
+extern "C" auto PS_Data_Eq_eqIntImpl() -> const boxed& {
   static const boxed _ = [](const boxed& n1_) -> boxed {
     const auto n1 = unbox<int>(n1_);
     return [=](const boxed& n2) -> boxed {
@@ -26,7 +26,7 @@ extern "C" auto PS_Data_Eq_eqIntImpl() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Eq_eqNumberImpl() -> boxed {
+extern "C" auto PS_Data_Eq_eqNumberImpl() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<double>(x_);
     return [=](const boxed& y_) -> boxed {
@@ -46,7 +46,7 @@ extern "C" auto PS_Data_Eq_eqNumberImpl() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Eq_eqCharImpl() -> boxed {
+extern "C" auto PS_Data_Eq_eqCharImpl() -> const boxed& {
   static const boxed _ = [](const boxed& c1) -> boxed {
     return [=](const boxed& c2) -> boxed {
       return unbox<string>(c1) == unbox<string>(c2);
@@ -55,7 +55,7 @@ extern "C" auto PS_Data_Eq_eqCharImpl() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Eq_eqStringImpl() -> boxed {
+extern "C" auto PS_Data_Eq_eqStringImpl() -> const boxed& {
   static const boxed _ = [](const boxed& s1) -> boxed {
     return [=](const boxed& s2) -> boxed {
       return unbox<string>(s1) == unbox<string>(s2);
@@ -64,7 +64,7 @@ extern "C" auto PS_Data_Eq_eqStringImpl() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_Eq_eqArrayImpl() -> boxed {
+extern "C" auto PS_Data_Eq_eqArrayImpl() -> const boxed& {
   static const boxed _ = [](const boxed& f) -> boxed {
     return [=](const boxed& xs_) -> boxed {
       return [=](const boxed& ys_) -> boxed {

@@ -5,7 +5,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn1() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn1() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&)>>(
 						   [=](const boxed& a) -> boxed {
@@ -16,7 +16,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn1() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn2() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn2() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&, const boxed&)>>(
 								 [=](const boxed& a, const boxed& b) -> boxed {
@@ -27,7 +27,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn2() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn3() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn3() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -42,7 +42,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn3() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn4() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn4() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -59,7 +59,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn4() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn5() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn5() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -78,7 +78,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn5() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn6() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn6() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -99,7 +99,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn6() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn7() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn7() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -122,7 +122,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn7() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn8() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn8() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -147,7 +147,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn8() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn9() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn9() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -174,7 +174,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn9() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_mkEffectFn10() -> boxed {
+extern "C" auto PS_Effect_Uncurried_mkEffectFn10() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return box<std::function<boxed(const boxed&,
                                    const boxed&,
@@ -205,7 +205,7 @@ extern "C" auto PS_Effect_Uncurried_mkEffectFn10() -> boxed {
 
 // runEffectFn
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn1() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn1() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=]() -> boxed {
@@ -216,7 +216,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn1() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn2() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn2() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -229,7 +229,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn2() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn3() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn3() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -246,7 +246,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn3() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn4() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn4() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -266,7 +266,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn4() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn5() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn5() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -289,7 +289,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn5() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn6() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn6() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -316,7 +316,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn6() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn7() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn7() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -345,7 +345,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn7() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn8() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn8() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -377,7 +377,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn8() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn9() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn9() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {
@@ -412,7 +412,7 @@ extern "C" auto PS_Effect_Uncurried_runEffectFn9() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Uncurried_runEffectFn10() -> boxed {
+extern "C" auto PS_Effect_Uncurried_runEffectFn10() -> const boxed& {
   static const boxed _ = [](const boxed& fn) -> boxed {
     return [=](const boxed& a) -> boxed {
       return [=](const boxed& b) -> boxed {

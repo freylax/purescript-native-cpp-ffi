@@ -7,14 +7,14 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Int_toNumber() -> boxed {
+extern "C" auto PS_Data_Int_toNumber() -> const boxed& {
   static const boxed _ = [](const boxed& n) -> boxed {
     return static_cast<double>(unbox<int>(n));
   };
   return _;
 };
 
-extern "C" auto PS_Data_Int_pow() -> boxed {
+extern "C" auto PS_Data_Int_pow() -> const boxed& {
   static const boxed _ = [](const boxed& n_) -> boxed {
     const auto n = unbox<int>(n_);
     return [=](const boxed& p) -> boxed {

@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Test_Assert_assertPrime_() -> boxed {
+extern "C" auto PS_Test_Assert_assertPrime_() -> const boxed& {
   static const boxed _ = [](const boxed& message) -> boxed {
     return [=](const boxed& success_) -> boxed {
       const auto success = unbox<bool>(success_);

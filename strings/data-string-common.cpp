@@ -12,7 +12,7 @@ static constexpr auto kRegexOpts =
 
 using namespace purescript;
 
-extern "C" auto PS_Data_String_Common__localeCompare() -> boxed {
+extern "C" auto PS_Data_String_Common__localeCompare() -> const boxed& {
   static const boxed _ = [](const boxed& lt) -> boxed {
     return [=](const boxed& eq) -> boxed {
       return [=](const boxed& gt) -> boxed {
@@ -33,7 +33,7 @@ extern "C" auto PS_Data_String_Common__localeCompare() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_String_Common_replace() -> boxed {
+extern "C" auto PS_Data_String_Common_replace() -> const boxed& {
   static const boxed _ = [](const boxed& s1_) -> boxed {
     return [=](const boxed& s2_) -> boxed {
       return [=](const boxed& s3_) -> boxed {
@@ -49,7 +49,7 @@ extern "C" auto PS_Data_String_Common_replace() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_String_Common_replaceAll() -> boxed {
+extern "C" auto PS_Data_String_Common_replaceAll() -> const boxed& {
   static const boxed _ = [](const boxed& s1_) -> boxed {
     return [=](const boxed& s2_) -> boxed {
       return [=](const boxed& s3_) -> boxed {
@@ -69,7 +69,7 @@ extern "C" auto PS_Data_String_Common_replaceAll() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_String_Common_split() -> boxed {
+extern "C" auto PS_Data_String_Common_split() -> const boxed& {
   static const boxed _ = [](const boxed& sep_) -> boxed {
     return [=](const boxed& str_) -> boxed {
       const auto& sep = unbox<string>(sep_);
@@ -99,7 +99,7 @@ extern "C" auto PS_Data_String_Common_split() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_String_Common_toLower() -> boxed {
+extern "C" auto PS_Data_String_Common_toLower() -> const boxed& {
   static const boxed _ = [](const boxed& s) -> boxed {
     char * buf = strdup(unbox<string>(s).c_str());
     utf8lwr(buf);
@@ -110,7 +110,7 @@ extern "C" auto PS_Data_String_Common_toLower() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_String_Common_toUpper() -> boxed {
+extern "C" auto PS_Data_String_Common_toUpper() -> const boxed& {
   static const boxed _ = [](const boxed& s) -> boxed {
     char * buf = strdup(unbox<string>(s).c_str());
     utf8upr(buf);
@@ -121,7 +121,7 @@ extern "C" auto PS_Data_String_Common_toUpper() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_String_Common_trim() -> boxed {
+extern "C" auto PS_Data_String_Common_trim() -> const boxed& {
   static const boxed _ = [](const boxed& s) -> boxed {
     static const auto expr = std::regex("^\\s+|\\s+$", kRegexOpts);
     return std::regex_replace(unbox<string>(s), expr, "");

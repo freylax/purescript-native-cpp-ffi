@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Effect_Ref_new() -> boxed {
+extern "C" auto PS_Effect_Ref_new() -> const boxed& {
   static const boxed _ = [](const boxed& val) -> boxed {
     return [=]() -> boxed {
       return dict_t{ {"value", val} };
@@ -13,7 +13,7 @@ extern "C" auto PS_Effect_Ref_new() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Ref_read() -> boxed {
+extern "C" auto PS_Effect_Ref_read() -> const boxed& {
   static const boxed _ = [](const boxed& ref) -> boxed {
     return [=]() -> boxed {
       return ref["value"];
@@ -22,7 +22,7 @@ extern "C" auto PS_Effect_Ref_read() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Ref_modifyPrime_() -> boxed {
+extern "C" auto PS_Effect_Ref_modifyPrime_() -> const boxed& {
   static const boxed _ = [](const boxed& f) -> boxed {
     return [=](const boxed& ref) -> boxed {
       return [=]() -> boxed {
@@ -36,7 +36,7 @@ extern "C" auto PS_Effect_Ref_modifyPrime_() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Effect_Ref_write() -> boxed {
+extern "C" auto PS_Effect_Ref_write() -> const boxed& {
   static const boxed _ =  [](const boxed& val) -> boxed {
     return [=](const boxed& ref) -> boxed {
       return [=]() -> boxed {

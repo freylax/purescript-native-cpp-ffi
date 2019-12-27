@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Unsafe_Coerce_unsafeCoerce() -> boxed {
+extern "C" auto PS_Unsafe_Coerce_unsafeCoerce() -> const boxed& {
   static const boxed _ = [](const boxed& x) -> boxed {
     return x;
   };

@@ -22,25 +22,53 @@ namespace Data_Ord {
 
 using namespace purescript;
 
-extern "C" auto PS_Data_Ord_ordBooleanImpl() -> boxed {
+extern "C" auto PS_Data_Ord_ordBooleanImpl() -> const boxed& {
   static const boxed _ = Data_Ord::ordImpl<bool>;
   return _;
 };
-extern "C" auto PS_Data_Ord_ordIntImpl() -> boxed {
+extern "C" auto PS_Data_Ord_ordIntImpl() -> const boxed& {
   static const boxed _ = Data_Ord::ordImpl<int>;
   return _;
 };
-extern "C" auto PS_Data_Ord_ordNumberImpl() -> boxed {
+extern "C" auto PS_Data_Ord_ordNumberImpl() -> const boxed& {
   static const boxed _ = Data_Ord::ordImpl<double>;
   return _;
 };
-extern "C" auto PS_Data_Ord_ordStringImpl() -> boxed {
+extern "C" auto PS_Data_Ord_ordStringImpl() -> const boxed& {
   static const boxed _ = Data_Ord::ordImpl<string>;
   return _;
 };
-extern "C" auto PS_Data_Ord_ordCharImpl() -> boxed {
+extern "C" auto PS_Data_Ord_ordCharImpl() -> const boxed& {
   static const boxed _ = Data_Ord::ordImpl<string>;
   return _;
 };
 
+extern "C" auto PS_Data_Ord_ordArrayImpl() -> const boxed& {
+  static const boxed _ = [](const boxed& f) -> boxed {
+    return [=]( const boxed& xs_) -> boxed {
+      return [=]( const boxed& ys_) -> boxed {
+	const array_t& xs = unbox<array_t>(xs_);
+	const array_t& ys = unbox<array_t>(ys_);
+	int i = 0;
+	const int xlen = xs.size();
+	const int ylen = ys.size();
+	while ( i < xlen && i < ylen) {
+	  const int o = unbox<int>( f(xs[i])(ys[i]));
+	  if (o != 0) {
+	    return o;
+	  }
+	  i++;
+	}
+	if (xlen == ylen) {
+	  return 0;
+	}  else if (xlen > ylen) {
+	  return -1;
+	} else {
+	  return 1;
+	}	
+      };
+    };
+  };
+  return _;
+};
 

@@ -5,14 +5,14 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Math_abs() -> boxed {
+extern "C" auto PS_Math_abs() -> const boxed& {
   static const boxed _ = [](const boxed& x) -> boxed {
     return std::fabs(unbox<double>(x));
   };
   return _;
 };
 
-extern "C" auto PS_Math_pow() -> boxed {
+extern "C" auto PS_Math_pow() -> const boxed& {
   static const boxed _ = [](const boxed& n_) -> boxed {
     const auto n = unbox<double>(n_);
     return [=](const boxed& p) -> boxed {

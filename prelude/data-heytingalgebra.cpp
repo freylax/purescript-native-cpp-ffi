@@ -4,7 +4,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_HeytingAlgebra_boolConj() -> boxed {
+extern "C" auto PS_Data_HeytingAlgebra_boolConj() -> const boxed& {
   static const boxed _ = [](const boxed& b1_) -> boxed {
     const auto b1 = unbox<bool>(b1_);
     return [=](const boxed& b2) -> boxed {
@@ -14,7 +14,7 @@ extern "C" auto PS_Data_HeytingAlgebra_boolConj() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_HeytingAlgebra_boolDisj() -> boxed {
+extern "C" auto PS_Data_HeytingAlgebra_boolDisj() -> const boxed& {
   static const boxed _ = [](const boxed& b1_) -> boxed {
     const auto b1 = unbox<bool>(b1_);
     return [=](const boxed& b2) -> boxed {
@@ -24,7 +24,7 @@ extern "C" auto PS_Data_HeytingAlgebra_boolDisj() -> boxed {
   return _;
 };
 
-extern "C" auto PS_Data_HeytingAlgebra_boolNot() -> boxed {
+extern "C" auto PS_Data_HeytingAlgebra_boolNot() -> const boxed& {
   static const boxed _ = [](const boxed& b) -> boxed {
     return !unbox<bool>(b);
   };

@@ -6,7 +6,7 @@
 
 using namespace purescript;
 
-extern "C" auto PS_Data_EuclideanRing_intDegree() -> boxed {
+extern "C" auto PS_Data_EuclideanRing_intDegree() -> const boxed& {
   static const boxed _ = [](const boxed& x) -> boxed {
     return std::min(std::abs(unbox<int>(x)), 2147483647);
   };
@@ -15,7 +15,7 @@ extern "C" auto PS_Data_EuclideanRing_intDegree() -> boxed {
 
 // See the Euclidean definition in
 // https://en.m.wikipedia.org/wiki/Modulo_operation.
-extern "C" auto PS_Data_EuclideanRing_intDiv() -> boxed {
+extern "C" auto PS_Data_EuclideanRing_intDiv() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<int>(x_);
     return [=](const boxed& y_) -> boxed {
@@ -28,7 +28,7 @@ extern "C" auto PS_Data_EuclideanRing_intDiv() -> boxed {
 };
 
 
-extern "C" auto PS_Data_EuclideanRing_intMod() -> boxed {
+extern "C" auto PS_Data_EuclideanRing_intMod() -> const boxed& {
   static const boxed _ = [](const boxed& x_) -> boxed {
     const auto x = unbox<int>(x_);
     return [=](const boxed& y_) -> boxed {
@@ -41,5 +41,13 @@ extern "C" auto PS_Data_EuclideanRing_intMod() -> boxed {
   return _;
 };
 
-
-
+extern "C" auto PS_Data_EuclideanRing_numDiv() -> const boxed& {
+  static const boxed _ = [](const boxed& n1_) -> boxed {
+    return [=]( const boxed& n2_) -> boxed {
+      const auto& n1 = unbox< double>( n1_);
+      const auto& n2 = unbox< double>( n2_);
+      return n1 / n2;
+    };
+  };
+  return _;
+};
