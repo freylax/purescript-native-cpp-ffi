@@ -59,8 +59,8 @@ extern "C" auto PS_Effect_Exception_catchException() -> const boxed& {
       return [=]() -> boxed {
 	try {
 	  return t();
-	} catch ( const std::exception& e) {
-	  return c( box<std::exception>( e))();
+	} catch ( const std::runtime_error& e) {
+	  return c( box<std::runtime_error>( e))();
 	}
       };
     };
